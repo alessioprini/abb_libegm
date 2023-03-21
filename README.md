@@ -8,6 +8,8 @@
 
 [![support level: community](https://img.shields.io/badge/support%20level-community-lightgray.svg)](http://rosindustrial.org/news/2016/10/7/better-supporting-a-growing-ros-industrial-software-platform)
 
+> :warning: **these packages are modified to awkwardly support MeasuredForce on [abb_robot_driver](https://github.com/alessioprini/abb_robot_driver)**
+
 ## Important Notes
 
 RobotWare versions less than `6.07.01` are now incompatible with *abb_libegm* (due to changes in the EGM communication protocol).
