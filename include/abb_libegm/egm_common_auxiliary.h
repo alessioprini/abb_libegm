@@ -410,6 +410,18 @@ bool parse(wrapper::Feedback* p_target, const EgmFeedBack& source, const RobotAx
  */
 bool parse(wrapper::Planned* p_target, const EgmPlanned& source, const RobotAxes axes);
 
+
+/**
+ * \brief Parse an abb::egm::EgmMeasuredForce object.
+ *
+ * \param p_target for containing the parsed data.
+ * \param source containing data to parse.
+ *
+ * \return bool indicating if the parsing was successful or not.
+ */
+bool parse(wrapper::MeasuredForce* p_force, const EgmMeasuredForce& source);
+
+
 /**
  * \brief Reset all values (i.e. set to zero) in a joints object.
  *

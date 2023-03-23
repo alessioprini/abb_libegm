@@ -906,7 +906,28 @@ bool parse(wrapper::Planned* p_target, const EgmPlanned& source, const RobotAxes
   return success;
 }
 
+bool parse(wrapper::MeasuredForce* p_force, const EgmMeasuredForce& source)
+{
+  bool success = false;
+	if(p_force && source.ByteSize() == 50)
+	{
+		char data[50];
+		int bytes_transferred;
+		bytes_transferred = source.ByteSize();
+		source.SerializeToArray(data, bytes_transferred);
+		std::vector<double> f = {0,0,0,0,0,0};//(source.force().begin(), source.force().end());
+		//f.reserve(6);
+		memcpy(f.data(), &data[2], 48);
+    p_force->clear_force();
+    for(int ii = 0; ii < 6; ii++)
+    {
+		  p_force->add_force(f.at(ii));
+    }
 
+		success = true;
+	}
+	return success;
+}
 
 
 /***********************************************************************************************************************
